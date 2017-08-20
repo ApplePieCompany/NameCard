@@ -10,6 +10,8 @@ namespace NameCard.Controllers
 {
 	public class UserController : Controller
 	{
+		ShareController _ShareController = new ShareController();
+
 		// GET: User
 		public ActionResult Index()
 		{
@@ -53,16 +55,16 @@ namespace NameCard.Controllers
 			string _return = "";
 
 			Dictionary < string, string> CONST_DIC = new Dictionary<string, string>() {
-				{"O1","<div>名刺表パターン１</div><div>name</div>" },
-				{"O2","<div>名刺表パターン２</div><div>name</div>" },
-				{"O3","<div>名刺表パターン３</div><div>name</div>" },
-				{"O4","<div>名刺表パターン４</div><div>name</div>" },
-				{"O5","<div>名刺表パターン５</div><div>name</div>" },
-				{"R1","<div>名刺ウラパターン１</div><div>name</div>" },
-				{"R2","<div>名刺ウラパターン２</div><div>name</div>" },
-				{"R3","<div>名刺ウラパターン３</div><div>name</div>" },
-				{"R4","<div>名刺ウラパターン４</div><div>name</div>" },
-				{"R5","<div>名刺ウラパターン５</div><div>name</div>" }
+				{"O1","<div class=\"cpbg1\"><div>名刺表パターン１</div><div>name</div></div>" },
+				{"O2","<div class=\"cpbg2\"><div>名刺表パターン２</div><div>name</div></div>" },
+				{"O3","<div class=\"cpbg3\"><div>名刺表パターン３</div><div>name</div></div>" },
+				{"O4","<div class=\"cpbg4\"><div>名刺表パターン４</div><div>name</div></div>" },
+				{"O5","<div class=\"cpbg5\"><div>名刺表パターン５</div><div>name</div></div>" },
+				{"R1","<div class=\"cpbg1 opa\"><div>名刺ウラパターン１</div><div>name</div></div>" },
+				{"R2","<div class=\"cpbg2 opa\"><div>名刺ウラパターン２</div><div>name</div></div>" },
+				{"R3","<div class=\"cpbg3 opa\"><div>名刺ウラパターン３</div><div>name</div></div>" },
+				{"R4","<div class=\"cpbg4 opa\"><div>名刺ウラパターン４</div><div>name</div></div>" },
+				{"R5","<div class=\"cpbg5 opa\"><div>名刺ウラパターン５</div><div>name</div></div>" }
 			};
 
 			string _temp = CONST_DIC[ _name + _val ].ToString();
@@ -72,6 +74,17 @@ namespace NameCard.Controllers
 			}
 
 			return _return;
+		}
+
+		[HttpPost]
+		public ActionResult Upsert()
+		{
+			if (Request.IsAjaxRequest()) {
+				Preview _ = Session[ "Preview" ] as Preview;
+				_ShareController.upsertAccount( _ );
+				return Content( "ご注文を受付ますた", "text/plain" );
+			}
+			return new EmptyResult();
 		}
 	}
 }

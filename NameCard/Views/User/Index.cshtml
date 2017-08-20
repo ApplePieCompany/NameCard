@@ -10,10 +10,11 @@
 	<!-- Left -->
 	<div class="leftside">
 		<div>
-			@using (Ajax.BeginForm( "Upsert", "Admin", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "Message" } )) {
+			@using (Ajax.BeginForm( "Upsert", "User", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "Message" } )) {
 				<input type="submit" id="saveaction" class="forward_btn" value="保存" />
 			}
 		</div>
+		<div id="Message"></div>
 		<div class="formdetail">@Html.Partial( "RenrakuSaki", @_M_ACCOUNT )</div>
 		<div class="formdetail">@Html.Partial( "Obverse" )</div>
 		<div class="formdetail">@Html.Partial( "Reverse" )</div>
