@@ -23,11 +23,11 @@
 	<div class="rightside">
 		<div class="obverse">
 			<div>表面</div>
-			<div id="obversepreview">@Html.Partial( "ObservePreview", @_PREVIEW )</div>
+			<div id="obversepreview" class="preview"></div>
 		</div>
 		<div class="reverse">
 			<div>ウラ面</div>
-			<div id="reversepreview">@Html.Partial( "ReservePreview", @_PREVIEW )</div>
+			<div id="reversepreview" class="preview"></div>
 		</div>
 	</div>
 </div>
@@ -56,8 +56,8 @@
 			$("input[name='val']").val(_val);
 
 			switch (_target) {
-				case "O": $('#showObverse').submit();
-				case "R": $('#showReverse').submit();
+				case "O": $('#showObverse').submit(); break;
+				case "R": $('#showReverse').submit(); break;
 			}
 		}));
 	});

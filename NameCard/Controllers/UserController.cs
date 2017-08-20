@@ -27,7 +27,6 @@ namespace NameCard.Controllers
 		{
 			if (Request.IsAjaxRequest()) {
 
-				string _target = _FormCollection[ "target" ];
 				string _name = _FormCollection[ "name" ];
 				string _val = _FormCollection[ "val" ];
 
@@ -42,9 +41,37 @@ namespace NameCard.Controllers
 				}
 				Session[ "Preview" ] = _;
 
-				return PartialView( _target,_ );
+				string _return = GetPreview( _name, _val, _ );
+
+				return Content( _return, "text/plain" );
 			}
 			return new EmptyResult();
+		}
+
+		private string GetPreview(string _name, string _val, Preview _)
+		{
+			string _return = "";
+
+			Dictionary < string, string> CONST_DIC = new Dictionary<string, string>() {
+				{"O1","<div>名刺表パターン１</div><div>name</div>" },
+				{"O2","<div>名刺表パターン２</div><div>name</div>" },
+				{"O3","<div>名刺表パターン３</div><div>name</div>" },
+				{"O4","<div>名刺表パターン４</div><div>name</div>" },
+				{"O5","<div>名刺表パターン５</div><div>name</div>" },
+				{"R1","<div>名刺ウラパターン１</div><div>name</div>" },
+				{"R2","<div>名刺ウラパターン２</div><div>name</div>" },
+				{"R3","<div>名刺ウラパターン３</div><div>name</div>" },
+				{"R4","<div>名刺ウラパターン４</div><div>name</div>" },
+				{"R5","<div>名刺ウラパターン５</div><div>name</div>" }
+			};
+
+			string _temp = CONST_DIC[ _name + _val ].ToString();
+			switch (_name) {
+				case "O":_return = _temp.Replace( "name", _.account.FirstName + "　" + _.account.LastName );break;
+				case "R":_return = _temp.Replace( "name", _.account.FirstNameEn + "　" + _.account.LastNameEn );break;
+			}
+
+			return _return;
 		}
 	}
 }
