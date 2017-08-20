@@ -1,0 +1,29 @@
+﻿
+@model NameCard.Models.Account
+@{
+}
+
+@using (Html.BeginForm( "Index", "Login", FormMethod.Post )) {
+
+		<!-- EMail -->
+	<div class="row">
+		<div class="labels">EMail</div>
+		<div id="email" class="items">@Html.TextBoxFor( model => model.Email )</div>
+		<div class="validation-error">@Html.ValidationMessageFor( model => model.Email )</div>
+	</div>
+
+		<!-- Passwd -->
+	<div class="row">
+		<div id="l_passwd" class="labels">Password</div>
+		<div id="passwd" class="items">@Html.EditorFor( model => model.Passwd )</div>
+		<div class="validation-error">@Html.ValidationMessageFor( model => model.Passwd )</div>
+	</div>
+
+		<!-- Submit -->
+	<div class="row">
+		<div id="l_submit" class="labels"></div>
+		<div id="submit" class="items">
+			<div class="submit"><input type="submit" value="Login"></div>
+		</div>
+	</div>
+}

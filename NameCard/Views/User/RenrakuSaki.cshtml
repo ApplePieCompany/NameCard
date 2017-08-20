@@ -1,0 +1,63 @@
+﻿@model NameCard.M_ACCOUNT
+
+@Html.Partial( "ShareStyle" )
+
+<!-- 個人情報 -->
+<div class="formrow">
+	<div id="BodyTitle" class="formtitles">お客様情報</div>
+</div>
+
+<div id="BodyContent">
+	<!-- 名前 -->
+	<div class="formrow">
+		<div class="formlabels">名前</div>
+		<div id="lastName" class="formitems"><input type="text" name="lastName" value="@Model.LastName" disabled="disabled" /></div>
+		<div id="firstName" class="formitems"><input type="text" name="firstName" value="@Model.FirstName" disabled="disabled" /></div>
+	</div>
+
+	<!-- 名前（英語表記） -->
+	<div class="formrow">
+		<div class="formlabels">名前（英語表記）</div>
+		<div id="lastNameEn" class="formitems"><input type="text" name="lastNameEn" value="@Model.LastNameEn" disabled="disabled" /></div>
+		<div id="firstNameEn" class="formitems"><input type="text" name="firstNameEn" value="@Model.FirstNameEn" disabled="disabled" /></div>
+	</div>
+
+	<!-- 住所 -->
+	<div class="formrow">
+		<div class="formlabels">住所</div>
+		<div id="pref" class="formitems"><input type="text" name="pref" value="@Model.Pref" disabled="disabled" /></div>
+		<div id="city" class="formitems"><input type="text" name="city" value="@Model.City" disabled="disabled" /></div>
+		<div id="address" class="formitems"><input type="text" name="address" value="@Model.Address" disabled="disabled" /></div>
+		<div id="apartment" class="formitems"><input type="text" name="apartment" value="@Model.Apartment" disabled="disabled" /></div>
+	</div>
+
+	<!-- 住所（英語表記） -->
+	<div class="formrow">
+		<div class="formlabels">住所（英語表記）</div>
+		<div id="prefen" class="formitems"><input type="text" name="prefen" value="@Model.PrefEn" disabled="disabled" /></div>
+		<div id="cityen" class="formitems"><input type="text" name="cityen" value="@Model.CityEn" disabled="disabled" /></div>
+		<div id="addressen" class="formitems"><input type="text" name="addressen" value="@Model.AddressEn" disabled="disabled" /></div>
+		<div id="apartmenten" class="formitems"><input type="text" name="apartmenten" value="@Model.ApartmentEn" disabled="disabled" /></div>
+	</div>
+
+	<!-- 役職 -->
+	<div class="formrow">
+		<div class="formlabels">役職</div>
+		<div id="role" class="formitems"><input type="text" name="role" value="@Model.Role" disabled="disabled" /></div>
+		<div id="subrole" class="formitems"><input type="text" name="subrole" value="@Model.SubRole" disabled="disabled" /></div>
+	</div>
+
+	<!-- 役職（英語表記） -->
+	<div class="formrow">
+		<div class="formlabels">役職（英語表記）</div>
+		<div id="roleen" class="formitems"><input type="text" name="roleen" value="@Model.RoleEn" disabled="disabled" /></div>
+		<div id="subroleen" class="formitems"><input type="text" name="subroleen" value="@Model.SubRoleEn" disabled="disabled" /></div>
+	</div>
+
+	<!-- TEL / FAX -->
+	<div class="formrow">
+		<div class="formlabels">TEL / FAX</div>
+		<div id="tel" class="formitems"><input type="text" name="tel" value="@Model.Tel" disabled="disabled" /></div>
+		<div id="fax" class="formitems"><input type="text" name="fax" value="@Model.Fax" disabled="disabled" /></div>
+	</div>
+</div>

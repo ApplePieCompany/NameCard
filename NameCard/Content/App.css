@@ -1,0 +1,47 @@
+﻿.validation-error {
+	float: left;
+	color: red;
+	margin: 5px 0px 0px 10px;
+}
+
+
+/*             */
+/* Login Index */
+/*             */
+.row::before, .row::after {
+	margin: 10px 0px 0px 0px;
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.labels {
+	float: left;
+	width: 10vw;
+	text-align: right;
+	margin: 5px 5px 0px 0px;
+}
+
+.items {
+	float: left;
+}
+
+.submit {
+	float: right;
+}
+
+/*             */
+/* Form Index  */
+/*             */
+.formdetail {
+	margin: 20px 0px 40px 0px;
+}
+
+.likehr {
+	height: 1px;
+	background-color: lightgray;
+}
+
+/*             */
+/* Admin Index */
+/*             */

@@ -1,0 +1,64 @@
+﻿@{
+	NameCard.M_ACCOUNT _M_ACCOUNT = ViewBag.ACCOUNT as NameCard.M_ACCOUNT;
+
+	NameCard.Models.ViewModel.Preview _PREVIEW = ViewBag.STYLE as NameCard.Models.ViewModel.Preview;
+}
+
+@Html.Partial( "ShareStyle" )
+
+<div class="makerrow">
+	<!-- Left -->
+	<div class="leftside">
+		<div>
+			@using (Ajax.BeginForm( "Upsert", "Admin", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "Message" } )) {
+				<input type="submit" id="saveaction" class="forward_btn" value="保存" />
+			}
+		</div>
+		<div class="formdetail">@Html.Partial( "RenrakuSaki", @_M_ACCOUNT )</div>
+		<div class="formdetail">@Html.Partial( "Obverse" )</div>
+		<div class="formdetail">@Html.Partial( "Reverse" )</div>
+	</div>
+
+	<!-- Right -->
+	<div class="rightside">
+		<div class="obverse">
+			<div>表面</div>
+			<div id="obversepreview">@Html.Partial( "ObservePreview", @_PREVIEW )</div>
+		</div>
+		<div class="reverse">
+			<div>ウラ面</div>
+			<div id="reversepreview">@Html.Partial( "ReservePreview", @_PREVIEW )</div>
+		</div>
+	</div>
+</div>
+
+@using (Ajax.BeginForm( "ShowPreview", "User", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "obversepreview" }, new { @id = "showObverse" } )) {
+	<input type="hidden" id="target" name="target" value="obversepreview" />
+	<input type="hidden" id="name" name="name" />
+	<input type="hidden" id="val" name="val" />
+}
+
+@using (Ajax.BeginForm( "ShowPreview", "User", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "reversepreview" }, new { @id = "showReverse" } )) {
+	<input type="hidden" id="target" name="target" value="reversepreview" />
+	<input type="hidden" id="name" name="name" />
+	<input type="hidden" id="val" name="val" />
+}
+
+
+<script type="text/javascript">
+	$(function () {
+		$(document).on("click", "#pattern", (function () {
+			var _kind = String( $(this).data('kind'));
+			var _target = _kind.substr(0, 1);
+			var _val = _kind.substr(1, 1);
+
+			$("input[name='name']").val(_target);
+			$("input[name='val']").val(_val);
+
+			switch (_target) {
+				case "O": $('#showObverse').submit();
+				case "R": $('#showReverse').submit();
+			}
+		}));
+	});
+</script>

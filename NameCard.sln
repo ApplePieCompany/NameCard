@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameCard", "NameCard\NameCard.csproj", "{F01481C3-BC49-4871-A8AA-82D7389D4AC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameCard.Tests", "NameCard.Tests\NameCard.Tests.csproj", "{803F82F2-BB0C-4120-9D70-F164A33EC1CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F01481C3-BC49-4871-A8AA-82D7389D4AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01481C3-BC49-4871-A8AA-82D7389D4AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01481C3-BC49-4871-A8AA-82D7389D4AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01481C3-BC49-4871-A8AA-82D7389D4AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803F82F2-BB0C-4120-9D70-F164A33EC1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803F82F2-BB0C-4120-9D70-F164A33EC1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803F82F2-BB0C-4120-9D70-F164A33EC1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803F82F2-BB0C-4120-9D70-F164A33EC1CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8DFD9E6-B376-4AEE-843F-A307D1775147}
+	EndGlobalSection
+EndGlobal
