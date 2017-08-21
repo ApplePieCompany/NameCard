@@ -1,7 +1,39 @@
 ﻿
 @{
-	ViewBag.Title = "Index";
+	List<NameCard.Models.ViewModel.Preview> _datas = ViewBag.DATAS as List<NameCard.Models.ViewModel.Preview>;
 }
 
-<h2>Index</h2>
+@foreach (var item in _datas) {
+	<div>
 
+		<div class="detail">@(item.account.FirstName)</div>
+		<div class="detail">@(item.account.LastName)</div>
+		<div class="detail sep">&nbsp;</div>
+
+		<div class="detail">@(item.account.FirstNameEn)</div>
+		<div class="detail">@(item.account.LastNameEn)</div>
+		<div class="detail sep">&nbsp;</div>
+
+		<div class="detail">表面パターン#@(item.Observe)</div>
+		<div class="detail sep">&nbsp;</div>
+
+		<div class="detail">ウラ面パターン#@(item.Reserve)</div>
+		<div class="detail sep">&nbsp;</div>
+
+		<div class="detail cls"></div>
+
+	</div>
+}
+
+
+<style>
+	.detail{
+		float:left;
+	}
+	.sep {
+		margin-left: 25px;
+	}
+	.cls{
+		clear:both;
+	}
+</style>

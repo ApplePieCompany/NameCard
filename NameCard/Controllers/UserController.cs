@@ -81,7 +81,7 @@ namespace NameCard.Controllers
 		{
 			if (Request.IsAjaxRequest()) {
 				Preview _ = Session[ "Preview" ] as Preview;
-				_ShareController.upsertAccount( _ );
+				_ShareController.upsertOrder( _ );
 				return Content( "ご注文を受付ますた", "text/plain" );
 			}
 			return new EmptyResult();

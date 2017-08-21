@@ -27,7 +27,27 @@ namespace NameCard.Controllers
 			return _return;
 		}
 
-		public bool upsertAccount(Preview _)
+		public List<Preview> fetchOrder()
+		{
+			List<Preview> _return = new List<Preview>();
+
+			using (var db = new DataClassesDataContext( ConfigurationManager.ConnectionStrings[ "NameCardConnectionString" ].ConnectionString )) {
+				try {
+					db.R_ORDER.ToList().ForEach( x => {
+						_return.Add(new Preview() {
+							 account = db.M_ACCOUNT.SingleOrDefault( y => y.EMail == x.EMail && y.Passwd == x.Passwd ),
+							 Observe = x.Obverse,
+							 Reserve = x.Reverse
+						} );
+					} );
+				}
+				catch (Exception ee) { }
+			}
+
+			return _return;
+		}
+
+		public bool upsertOrder(Preview _)
 		{
 			using (var db = new DataClassesDataContext( ConfigurationManager.ConnectionStrings[ "NameCardConnectionString" ].ConnectionString )) {
 				try {
